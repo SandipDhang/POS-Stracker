@@ -1,10 +1,12 @@
+import * as ActionTypes from "./action.types";
 export const getAllStocks = () => {
   return {
-    type: "GET_ALL_STOCKS",
-    payload: [
-      { id: 1, name: "Ice Cream" },
-      { id: 2, name: "Pizza" },
-      { id: 3, name: "Burger" },
-    ],
+    type: ActionTypes.GET_ALL_STOCKS,
+  };
+};
+
+export const fetchAllStocks = () => {
+  return {
+    type: ActionTypes.FETCH_ALL_STOCKS,
   };
 };
