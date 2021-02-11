@@ -3,12 +3,16 @@ import Axios from "axios";
 
 // Worker Saga to fetch all Stocks
 function* workerGetProducts() {
-  yield Axios.get("https://jsonplaceholder.typicode.com/posts").then((res) => {
-    put({
-      type: "FETCH_ALL_STOCKS",
-      payload: res,
-    });
-  });
+  try {
+    const response = yield Axios.get(
+      "https://jsonplaceholder.typicode.com/users"
+    );
+    if (response) {
+      yield put({ type: "FETCH_ALL_STOCKS", payload: response });
+    }
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 // Watcher Saga who watch whenever "GET_ALL_STOCKS" action dispatch
