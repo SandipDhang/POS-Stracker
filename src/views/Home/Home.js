@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import PropTypes from "prop-types";
 import { getAllStocks } from "../../actions";
 import { useDispatch } from "react-redux";
+import "./Home.css";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const Home = () => {
       <Helmet>
         <title>Home - STracker | Track you stocks</title>
       </Helmet>
-      <h1>This is from React</h1>
+      <h1 className="myHead">This is from React</h1>
     </React.Fragment>
   );
 };

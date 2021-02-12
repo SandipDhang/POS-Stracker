@@ -1,12 +1,10 @@
 import { put, takeEvery, all } from "redux-saga/effects";
-import Axios from "axios";
+import { getAllStocks } from "../apis/api.stock";
 
 // Worker Saga to fetch all Stocks
 function* workerGetProducts() {
   try {
-    const response = yield Axios.get(
-      "https://jsonplaceholder.typicode.com/users"
-    );
+    const response = yield getAllStocks();
     if (response) {
       yield put({ type: "FETCH_ALL_STOCKS", payload: response });
     }
