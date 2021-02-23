@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import PropTypes from "prop-types";
-import { getAllStocks } from "../../actions";
+import { getAllStocks } from "../../actions/Products";
 import { useDispatch } from "react-redux";
 import "./Home.css";
 
@@ -22,7 +22,7 @@ const Home = () => {
       <h1 className="myHead">
         This is from React{" "}
         <span>
-          <Link to="/login" style={{ color: "#fff" }}>
+          <Link to="/login" style={{ color: "#000" }}>
             Login
           </Link>
         </span>

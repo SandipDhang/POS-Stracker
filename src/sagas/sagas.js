@@ -1,24 +1,8 @@
-import { put, takeEvery, all } from "redux-saga/effects";
-import { getAllStocks } from "../apis/api.stock";
+import { all } from "redux-saga/effects";
 
-// Worker Saga to fetch all Stocks
-function* workerGetProducts() {
-  try {
-    const response = yield getAllStocks();
-    if (response) {
-      yield put({ type: "FETCH_ALL_STOCKS", payload: response });
-    }
-  } catch (error) {
-    console.log(error);
-  }
-}
+import productWatcher from "./Product/product.saga";
+import accountWatcher from "./Account/account.saga";
 
-// Watcher Saga who watch whenever "GET_ALL_STOCKS" action dispatch
-function* watcherGetProducts() {
-  yield takeEvery("GET_ALL_STOCKS", workerGetProducts);
-}
-
-// single entry point to start all Sagas at once
 export default function* rootSaga() {
-  yield all([watcherGetProducts()]);
+  yield all([productWatcher, accountWatcher]);
 }

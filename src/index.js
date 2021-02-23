@@ -11,6 +11,8 @@ import Store from "./store";
 //import Main ( Routing ) Component
 import Routing from "./routes/Routing";
 
+import "./index.css";
+
 ReactDOM.render(
   <Provider store={Store}>
     <Routing />

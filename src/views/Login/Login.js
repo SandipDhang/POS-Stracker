@@ -1,35 +1,33 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import InputFeild from "../../_components/InputFeild";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%,-50%)",
-    display: "block",
-    flexWrap: "wrap",
-    width: "50%",
-  },
-  container: {
-    backgroundColor: "#424242",
-  },
-}));
+import LoginForm from "./LoginForm/LoginForm";
+
+import "./Login.css";
+import BrandImg from "../../assets/logo.png";
+
+const ImgUrl =
+  "https://images.unsplash.com/photo-1602016753527-3b369b88af5f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80";
 
 const Login = () => {
-  const classes = useStyles();
   return (
     <React.Fragment>
       <Helmet>
         <title>Login to your acoount | STracker</title>
       </Helmet>
-      <div className={classes.root}>
-        <Paper className={classes.container}>
-          <InputFeild label="Username" fullWidth varient="outlined" />
-        </Paper>
+      <div className="login_container">
+        <div className="image_holder">
+          <img src={ImgUrl} alt="hero banner" />
+          <div className="image_overlay"></div>
+        </div>
+        <div className="form_holder">
+          <div className="brand_logo">
+            <img src={BrandImg} alt="brand_logo" />
+          </div>
+          <div className="form_contaner">
+            <LoginForm />
+          </div>
+        </div>
       </div>
     </React.Fragment>
   );
