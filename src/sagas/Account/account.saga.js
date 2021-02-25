@@ -1,26 +1,28 @@
 import { put, takeEvery, fork } from "redux-saga/effects";
 import { addUser } from "../../apis/api.auth";
+import * as ActionTypes from "../../actions/Accounts/action.types";
 
 // Worker Saga to fetch all Stocks
-function* workerAddUser() {
+function* workerFetchUser(data) {
   try {
-    const response = yield addUser();
+    const userData = data?.payload;
+    const user = { ...userData };
+    const response = yield addUser(user);
     if (response) {
-      console.log(response);
-      yield put({ type: "NEW_USER", payload: response });
+      yield put({ type: ActionTypes.FETCH_USER_INFO, payload: response.data });
     }
   } catch (error) {
-    console.log(error);
+    console.log(error, "error");
   }
 }
 
 // Watcher Saga who watch whenever "GET_ALL_STOCKS" action dispatch
-function* watcherGetProducts() {
-  yield takeEvery("ADD_USER", workerAddUser);
+function* watcherFetchUser() {
+  yield takeEvery(ActionTypes.FETCH_USER, workerFetchUser);
 }
 
 function* fetchAll() {
-  yield fork(watcherGetProducts);
+  yield fork(watcherFetchUser);
 }
 
 export default fetchAll();

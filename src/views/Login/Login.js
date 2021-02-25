@@ -24,6 +24,7 @@ const Login = () => {
           <div className="brand_logo">
             <img src={BrandImg} alt="brand_logo" />
           </div>
+          <h1>Sign In</h1>
           <div className="form_contaner">
             <LoginForm />
           </div>

@@ -1,2 +1,2 @@
-export const ADD_USER = "ADD_USER";
-export const NEW_USER = "NEW_USER";
+export const FETCH_USER = "FETCH_USER";
+export const FETCH_USER_INFO = "FETCH_USER_INFO";

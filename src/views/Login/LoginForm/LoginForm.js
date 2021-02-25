@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
+import "./LoginForm.css";
 
-import { addUser } from "../../../actions/Accounts";
+import { fetchUser } from "../../../actions/Accounts";
 
 const LoginForm = () => {
   const [email, setEmail] = useState(null);
@@ -16,13 +17,30 @@ const LoginForm = () => {
       password,
     };
     console.log(data);
-    dispatch(addUser(data));
+    dispatch(fetchUser(data));
   };
   return (
-    <form>
-      <input type="email" onChange={(e) => setEmail(e.target.value)} />
-      <input type="password" onChange={(e) => setPassword(e.target.value)} />
-      <button type="submit" onClick={handleFormSubmit}>
+    <form className="form">
+      <div className="input_feild">
+        <i className="fas fa-at"></i>
+        <input
+          id="email"
+          type="email"
+          placeholder="Enter your email"
+          autoComplete="off"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
+      <div className="input_feild">
+        <i className="fas fa-key"></i>
+        <input
+          id="password"
+          type="password"
+          placeholder="Enter your password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
+      <button type="submit" onClick={handleFormSubmit} className="login_btn">
         Login
       </button>
     </form>

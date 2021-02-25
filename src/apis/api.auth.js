@@ -1,7 +1,11 @@
 import Axios from "axios";
 
-const BaseAPI = "localhost://8900";
+const BaseAPI = "http://localhost:8900";
 
-export const addUser = () => {
-  return Axios.post(`${BaseAPI}/addUser`);
+export const addUser = (user) => {
+  console.log(user, "api");
+  const headers = {
+    "Content-Type": "application/json",
+  };
+  return Axios.post(`${BaseAPI}/adUser`, user, { headers });
 };

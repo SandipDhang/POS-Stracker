@@ -14,7 +14,6 @@
   margin: 0;
   padding: 0;
   color: aliceblue;
-  background: red;
   width: 70%;
 }
 
@@ -54,18 +53,28 @@
 .login_container .form_holder {
   position: relative;
   margin: 0;
-  padding: 0;
+  padding: 50px 50px;
   color: aliceblue;
-  background: green;
+  background: #000;
   width: 30%;
+  font-family: "lato", sans-serif;
 }
 
 .login_container .form_holder .brand_logo {
   height: 60px;
   width: 60px;
+  margin-bottom: 50px;
 }
 
 .login_container .form_holder .brand_logo img {
   height: 100%;
   width: 100%;
+}
+
+.login_container .form_holder .form_contaner {
+  width: 100%;
+}
+
+.login_container .form_holder h1 {
+  margin-bottom: 50px;
 }
